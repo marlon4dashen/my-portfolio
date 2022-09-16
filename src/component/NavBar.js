@@ -17,11 +17,18 @@ export default function NavBar(){
                         Marlon
                     </NavLink>
                     <NavLink 
+                        to='/about' 
+                        className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
+                        activeClassName="text-red-100 bg-blue-400"
+                    >
+                        About Me
+                    </NavLink>
+                    <NavLink 
                         to='/post' 
                         activeClassName="text-red-100 bg-blue-400"
                         className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
                     >
-                        Blog Posts
+                        Experiences
                     </NavLink>
                     <NavLink 
                         to='/project'
@@ -29,13 +36,6 @@ export default function NavBar(){
                         className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
                     >
                         Projects
-                    </NavLink>
-                    <NavLink 
-                        to='/about' 
-                        className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
-                        activeClassName="text-red-100 bg-blue-400"
-                    >
-                        About Me!
                     </NavLink>
                 </nav>
                 <div className="inline-flex py-3 px-3 my-6">

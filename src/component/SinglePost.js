@@ -22,6 +22,7 @@ export default function SinglePost(){
             title,
             _id,
             slug,
+            level,
             mainImage{
                 asset->{
                     _id,
@@ -29,13 +30,17 @@ export default function SinglePost(){
                 }
             },
             body,
-            "name": author->name,
-            "authorImage": author->image
+            Start,
+            End
         }`).then((data) => setSinglePost(data[0]))
         .catch(console.error);
     }, [slug]);
 
     if (! singlePost) return <div> Loading... </div>
+
+    if (!singlePost.End){
+        singlePost.End = "Now"
+    }
 
     return (
         <main className="bg-gray-200 min-h-screen p-12"> 
@@ -44,14 +49,23 @@ export default function SinglePost(){
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
                         <div className="bg-white bg-opacity-75 rounded p-12">
                             <h1 className="cursive text-3xl lg:text-6xl mb-4">{singlePost.title}</h1>
-                            <div className="flex justify-center text-gray-800">
-                                <img src={urlFor(singlePost.authorImage).url()}
-                                alt={singlePost.name}
-                                className="w-10 h-10 rounded-full"
-                                />
-                                <p className="cursive flex items-center pl-2 text-2xl">
-                                    {singlePost.name}
-                                </p>
+                            <div className="flex-col justify-center text-gray-800">
+                                <div className="flex">
+                                    <h3 className="cursive flex items-center pl-2 text-2xl">
+                                        Time: 
+                                    </h3>
+                                    <p className="cursive flex items-center pl-2 text-2xl">
+                                        {singlePost.Start} to {singlePost.End}
+                                    </p>
+                                </div>
+                                <div className="flex">
+                                    <h3 className="cursive flex items-center pl-2 text-2xl">
+                                        Level: 
+                                    </h3>
+                                    <p className="cursive flex items-center pl-2 text-2xl">
+                                        {singlePost.level}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

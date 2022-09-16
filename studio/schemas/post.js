@@ -9,6 +9,16 @@ export default {
       type: 'string',
     },
     {
+      name: 'Institution',
+      title: 'Institution',
+      type: 'string',
+    },
+    {
+      name: 'level',
+      title: 'level',
+      type: 'string'
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -18,10 +28,10 @@ export default {
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
+      name: 'type',
+      title: 'type',
+      type: 'boolean',
+      description: 'If this is a work-related experience, select yes'
     },
     {
       name: 'mainImage',
@@ -32,8 +42,13 @@ export default {
       },
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
+      name: 'Start',
+      title: 'Start',
+      type: 'datetime',
+    },
+    {
+      name: 'End',
+      title: 'End',
       type: 'datetime',
     },
     {
@@ -46,7 +61,6 @@ export default {
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
     },
     prepare(selection) {
