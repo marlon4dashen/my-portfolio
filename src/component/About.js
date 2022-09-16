@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
-import background from "../934367.png";
+import background from "../bg1.png";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 
@@ -26,7 +26,7 @@ export default function About(){
 
     return (
         <main className="relative">
-            <img src={background} alt="About background" className="absolute w-full" />
+            <img src={background} alt="About background" className="absolute w-full h-full" />
             <div className="p-10 lg:pt-48 container mx-auto relative">
                 
                 <section className="bg-transparent rounded-lg shadow-2xl lg:flex p-20">
