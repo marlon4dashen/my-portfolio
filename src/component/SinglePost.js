@@ -11,74 +11,32 @@ function urlFor(source) {
     return builder.image(source)
 }
 
-export default function SinglePost(){
+export default function SinglePost(props){
 
-    const [singlePost, setSinglePost] = useState(null);
-    const { slug } = useParams();
-
-
-    useEffect(() => {
-        sanityClient.fetch(`*[slug.current == "${slug}"]{
-            title,
-            _id,
-            slug,
-            level,
-            mainImage{
-                asset->{
-                    _id,
-                    url
-                }
-            },
-            body,
-            Start,
-            End
-        }`).then((data) => setSinglePost(data[0]))
-        .catch(console.error);
-    }, [slug]);
-
-    if (! singlePost) return <div> Loading... </div>
-
-    if (!singlePost.End){
-        singlePost.End = "Now"
+    if (!props.post.End){
+        props.post.End = "Now"
     }
-
+    console.log(props)
     return (
-        <main className="bg-gray-200 min-h-screen p-12"> 
-            <article className="container shadow-lg mx-auto bg-green-100 rounded-lg">
-                <header className="relative">
-                    <div className="absolute h-full w-full flex items-center justify-center p-8">
-                        <div className="bg-white bg-opacity-75 rounded p-12">
-                            <h1 className="cursive text-3xl lg:text-6xl mb-4">{singlePost.title}</h1>
-                            <div className="flex-col justify-center text-gray-800">
-                                <div className="flex">
-                                    <h3 className="cursive flex items-center pl-2 text-2xl">
-                                        Time: 
-                                    </h3>
-                                    <p className="cursive flex items-center pl-2 text-2xl">
-                                        {singlePost.Start} to {singlePost.End}
-                                    </p>
-                                </div>
-                                <div className="flex">
-                                    <h3 className="cursive flex items-center pl-2 text-2xl">
-                                        Level: 
-                                    </h3>
-                                    <p className="cursive flex items-center pl-2 text-2xl">
-                                        {singlePost.level}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+        // <main className="bg-gray-200 min-h-screen p-12"> 
+            <section>
+                <div className="flex flex-row">
+                    <div className="flex flex-col w-24 static">
+                        <h3 className="font-bold font-serif text-2xl"> {props.post.Institution}</h3>
+                        <h6 className="open-sans font-size pt-3 text-sm"> {props.post.Start.slice(0, 7)} - {props.post.End.slice(0, 7)} </h6>
                     </div>
-                    <img src={singlePost.mainImage.asset.url} alt={singlePost.title} className ="w-full object-cover rounded-t"
-                    style={{ height: "400px" }}/>
-                </header>
-                <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
-                    <BlockContent blocks={singlePost.body}
-                    projectId="s1sw7g3s"
-                    dataset="production"/>
+                    <div className="items-start pl-24">
+                        <h3 className="font-bold font-serif text-2xl"> {props.post.title}</h3>
+                        <div className=" w-full pt-3 font-serif">
+                            <BlockContent blocks={props.post.body}
+                            projectId="s1sw7g3s"
+                            dataset="production"/>
+                        </div>
+
+                    </div>          
                 </div>
-            </article>
-        </main>
+
+            </section>
 
     );
 
