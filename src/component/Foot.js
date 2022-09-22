@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 
-export default function Foot() {
+export default function Foot(props) {
+
     return (
-        <section>
+        <section style={{
+            color: props.color
+        }}>
             <div className="flex flex-col justify-center px-10 py-24">
                 <h3 className="flex text-2xl justify-center font-serif pb-10"> Thank you for your attention! :^) </h3>
                 <div className="flex justify-center pt-3">

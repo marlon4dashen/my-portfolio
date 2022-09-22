@@ -2,32 +2,34 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 
-export default function NavBar(){
+export default function NavBar(props){
 
     return (
-        <header className="sticky top-0">
+        <header className="sticky top-0" style={{
+            color: props.color
+        }}>
             <div className='container mx-auto flex justify-between'>
                 <nav className="flex">
                     <NavLink 
                         to='/' 
                         exact
-                        activeClassName='text-black' 
-                        className="inflex-flex items-center py-6 px-3 mr-4 text-black-100 hover:text-green-800 text-4xl font-bold cursive tracking-widest"
+                        activeClassName={props.color}
+                        className="inflex-flex items-center py-6 px-3 mr-4 hover:text-green-800 text-4xl font-bold cursive tracking-widest"
                     >
                         Marlon
                     </NavLink>
                     <div className="grid-cols-2 divide-x">
                         <NavLink 
                             to='/post' 
-                            activeClassName="text-black"
-                            className="inline-flex items-center py-3 px-3 my-6 rounded text-black hover:text-green-800"
+                            activeClassName={props.color}
+                            className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-green-800"
                         >
                             Experiences
                         </NavLink>
                         <NavLink 
                             to='/project'
-                            activeClassName="text-black" 
-                            className="inline-flex items-center py-3 px-3 my-6 rounded text-black hover:text-green-800"
+                            activeClassName={props.color}
+                            className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-green-800"
                         >
                             Projects
                         </NavLink>

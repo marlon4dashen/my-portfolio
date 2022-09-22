@@ -42,7 +42,7 @@ export default function Home(){
                 </section>
                 <section className="py-32">
                     <div className="flex flex-col items-start px-32">
-                        <h6 className="flex font-serif italic justify-center text-2xl text-slate-600">
+                        <h6 className="flex font-serif italic justify-center text-2xl text-gray-600">
                             “Time is like water in sponge; if you squeeze harder, there is always more."
                         </h6>
                         <h6 className="flex font-bold text-2xl text-black">
@@ -50,7 +50,7 @@ export default function Home(){
                         </h6>
                     </div>
                     <div className="flex flex-col items-end px-36 pt-28">
-                        <h6 className="flex font-serif italic justify-center text-2xl text-slate-600">
+                        <h6 className="flex font-serif italic justify-center text-2xl text-gray-600">
                             “I never wanted to be on any billionaires list. I never define myself by net worth. I always try to define myself by my values."
                         </h6>
                         <h6 className="flex font-bold text-2xl text-black">
@@ -58,7 +58,7 @@ export default function Home(){
                         </h6>
                     </div>
                     <div className="flex flex-col items-start px-36 pt-28">
-                        <h6 className="flex font-serif italic justify-center text-2xl text-slate-600">
+                        <h6 className="flex font-serif italic justify-center text-2xl text-gray-600">
                             “If you want to be known for everything, you’ll be known for nothing."
                         </h6>
                         <h6 className="flex font-bold text-2xl text-black">

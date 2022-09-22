@@ -30,8 +30,15 @@ export default {
     {
       name: 'type',
       title: 'type',
-      type: 'boolean',
-      description: 'If this is a work-related experience, select yes'
+      type: 'string',
+      options:{
+        list:[
+            { value: "work", title: "Work" },
+            { value: "education", title: "Education" },
+            { value: "award", title: "Award" },
+            { value: "certificate", title: "Certificate" },
+        ]
+    }
     },
     {
       name: 'mainImage',

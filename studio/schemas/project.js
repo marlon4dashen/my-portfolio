@@ -37,6 +37,14 @@ export default{
             type: "url",
         },
         {
+            name: 'image',
+            title: 'Image',
+            type: 'image',
+            options: {
+              hotspot: true,
+            },
+        },
+        {
             name: "tags",
             type: "array",
             of: [
